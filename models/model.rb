@@ -15,5 +15,5 @@ uri = open('https://api.flickr.com/services/rest/?method=flickr.photos.getRecent
 list = Net::HTTP.get(uri)
 binding.pry
 jlist = JSON.parse(list)
-
+# https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 puts jlist
