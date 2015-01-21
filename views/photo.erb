@@ -1,9 +1,18 @@
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+<head>
 <h1>Hello</h1>
 
 <form action="/photo" method="post">
 	<img src="<%=@photo%>">
-	
-	<input type="radio" name="yes_or_no" value="Yes" checked>Yes
+	<br>
+	<br>
+	<hr>
+	<input class = "glyphicon glyphicon-thumbs-up
+lg" type="radio" name="yes_or_no" value="Yes" checked>Yes
 <br>
-<input type="radio" name="yes_or_no" value="No">No
+
+<input type = "radio" name="yes_or_no" value="No">No
 </form>
+
+  <a class="btn btn-default begin-btn" href="/photo" role="button">Next</a>
