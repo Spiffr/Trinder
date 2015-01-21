@@ -7,7 +7,7 @@ class MyApp < Sinatra::Base
   get '/' do
     @picture = Picture.new
     erb :index
-
   end
 
+  
 end

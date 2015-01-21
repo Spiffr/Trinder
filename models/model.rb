@@ -1,6 +1,5 @@
 require 'net/http'
 require 'json'
-require 'flickr.rb'
 require 'pry'
 require_relative './query'
 
