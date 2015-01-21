@@ -32,7 +32,6 @@ class MyApp < Sinatra::Base
       elsif params[:country] == "Germany"
         session["points"].germany_point
       end
-      binding.pry
       puts session["points"].countries
       redirect '/photo'
     end

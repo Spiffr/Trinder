@@ -1,20 +1,35 @@
 <head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-<head>
-<h1>Hello</h1>
+<script	 src="https://code.jquery.com/jquery-2.1.3.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<center>
 <form action="/photo" method="post">
   <input type="hidden" name="country" value="<%=@country%>">
 	<img src="<%=@photo%>">
 	<br>
 	<br>
 	<hr>
-	<input class = "glyphicon glyphicon-thumbs-up
-lg" type="radio" name="yes_or_no" value="Yes" checked>Yes
-<br>
 
-<input type="radio" name="yes_or_no" value="No">No
+
+  <label class="btn btn-primary">
+    <input type="hidden" name="country" value="<%=@country%>" autocomplete="off"> Yes
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="No" autocomplete="off"> No
+  </label>
+</div>
 <input type="submit">
 </form>
 
-  
+<script>
+  $('#No').on('click', function () {
+    $(this).button('complete') // button text will be "finished!"
+  })
+</script>
+
+
+</center>
+
