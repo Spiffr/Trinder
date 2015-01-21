@@ -36,5 +36,11 @@ class MyApp < Sinatra::Base
       redirect '/photo'
     end
 
+    get '/results' do
+      @final = session["points"].countries
+      erb :results
+    end
+
+
 
 end
