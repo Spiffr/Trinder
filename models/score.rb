@@ -1,5 +1,5 @@
 class Score
-	def initialize
+	def initialize 
 		@countries = {:Brazil => 0,:China => 0, :South_Africa => 0,:Bahamas => 0, :Germany => 0}
 	end
 
