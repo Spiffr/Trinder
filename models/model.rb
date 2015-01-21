@@ -5,10 +5,10 @@ require_relative './query'
 
 class Picture
     def initialize
-        new_query = Query.new
+        @new_query = Query.new
     # uri = open('https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=1e9ca4287cf30cf0fff691d5970fdd21&' + @query.to_s)
-        uri = URI('https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=1e9ca4287cf30cf0fff691d5970fdd21&' + new_query.show)
-        another_uri = ('https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=1e9ca4287cf30cf0fff691d5970fdd21&' + new_query.show)
+        uri = URI('https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=1e9ca4287cf30cf0fff691d5970fdd21&' + @new_query.show)
+        another_uri = ('https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=1e9ca4287cf30cf0fff691d5970fdd21&' + @new_query.show)
         puts uri
         list = Net::HTTP.get(uri)
                 list = list.gsub("jsonFlickrApi(", "");
@@ -28,6 +28,10 @@ class Picture
     
     def show
         @picurl
+    end
+
+    def country
+        @new_query.country_name
     end
 end
 

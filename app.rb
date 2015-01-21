@@ -7,19 +7,34 @@ class MyApp < Sinatra::Base
   set :sessions, true
 
   get '/' do
-   session[:points] = Score.new
+   session["points"] = Score.new
    erb :index
   end
 
   get '/photo' do
-    @photo = Picture.new
-    @photo = @photo.show
+    @picture = Picture.new
+    @photo = @picture.show
+    @country = @picture.country
     puts @photo
     erb :photo
   end
 
     post '/photo' do
-      paramssession[:points]
+      puts params
+      if params[:country] == "Bahamas"
+        session["points"].bahamas_point
+      elsif params[:country] == "Brazil"
+        session["points"].brazil_point
+      elsif params[:country] == "South_Africa"
+        session["points"].south_africa_point
+      elsif params[:country] == "China"
+        session["points"].china_point
+      elsif params[:country] == "Germany"
+        session["points"].germany_point
+      end
+      binding.pry
+      puts session["points"].countries
+      redirect '/photo'
     end
 
 
