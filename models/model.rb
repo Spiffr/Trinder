@@ -26,9 +26,7 @@ class Picture
         puts picurl
         @picurl = picurl
         @picurl
-        
     end
-
 end
 
 # flickr = Flickr.new('1e9ca4287cf30cf0fff691d5970fdd21')
