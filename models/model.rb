@@ -1,6 +1,4 @@
 require 'net/http'
-require 'json'
-require 'flickr.rb'
 require 'pry'
 require_relative './query'
 
@@ -9,20 +7,25 @@ class Picture
         new_query = Query.new
     # uri = open('https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=1e9ca4287cf30cf0fff691d5970fdd21&' + @query.to_s)
         uri = URI('https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=1e9ca4287cf30cf0fff691d5970fdd21&' + new_query.show)
+
+        another_uri = ('https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=1e9ca4287cf30cf0fff691d5970fdd21&' + new_query.show)
+        puts uri
         list = Net::HTTP.get(uri)
-                binding.pry
+                list = list.gsub("jsonFlickrApi(", "");
+                list = list.slice(0,list.length()-1);
         jlist = JSON.parse(list)
-
-
         # https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
-        pic = jlist.photo.rand
-        id = pic.id
-        farm = pic.farm
-        secret = pic.secret
-        server = pic.server
-        puts "farm: #{farm} server: #{server} id: #{id} secret: #{secret}"
+        pic = jlist["photos"]["photo"].sample
+        id = pic["id"]
+        farm = pic["farm"]
+        secret = pic["secret"]
+        server = pic["server"]
         picurl = "https://farm#{farm}.staticflickr.com/#{server}/#{id}_#{secret}.jpg"
-        picurl
+        @picurl = picurl
+    end
+
+    def show
+        @picurl
     end
 
 end
@@ -47,4 +50,3 @@ end
 # end
 
 p = Picture.new
-
