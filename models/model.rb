@@ -24,6 +24,9 @@ class Picture
         picurl = "https://farm#{farm}.staticflickr.com/#{server}/#{id}_#{secret}.jpg"
         puts picurl
         @picurl = picurl
+    end
+    
+    def show
         @picurl
     end
 end

@@ -34,5 +34,6 @@ DEPENDENCIES
   json
   nokogiri
   pry
+  rack
   shotgun
   sinatra
